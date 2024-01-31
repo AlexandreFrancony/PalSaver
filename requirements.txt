@@ -1,3 +1,2 @@
-io
-ftplib
 typing
+python-dotenv
