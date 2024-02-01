@@ -12,7 +12,7 @@ class RCONservice:
     def connect(self):
         print(f'Trying to notify server')
         try :
-            with Client(self.hostname.split(0), self.hostname.split(2), passwd=self.pwd) as client:
+            with Client(self.hostname.split(":")[0], self.hostname.split(":")[0], passwd=self.pwd) as client:
                 response = client.run('/Broadcast Save_done')
         except Exception as e:
             self.logger_message_queue.put(
