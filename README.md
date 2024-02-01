@@ -16,6 +16,8 @@ Ouvrir le fichier `.env` et ajouter les valeurs nescessaire =
  - `PWD`: Mot de passe du serveur FTP (Mot de passe définit avec le Username dans l'onglet 'Comptes FTP' du manager)
  - `REMOTE_PATH`: Chemin du dossier de sauvegarde sur le serveur FTP (pour Nitroserv, c'est `/Palworld/Pal/Saved`)
  - `LOCAL_PATH`: Chemin du dossier où vous souhaitez sauvegarder votre save (par exemple `C:\Saves_Palworld`)
+ - `RCON_IP`: Adresse IP du serveur (pour Nitroserv, c'est trouvable dans l'onglet 'Mon serveur' du manager, dans la partie gauche de l'écran, SANS LA PARTIE APRES LES DEUX POINTS)
+ - `RCON_PORT`: Port RCON du serveur (pour Nitroserv, c'est trouvable dans l'onglet 'Mon serveur' du manager, dans la partie droite de l'écran, avec le RCON password, par défaut 9221 chez Nitroserv)
  - `RCON_PWD`: Mot de passe RCON du serveur (pour Nitroserv, c'est trouvable dans l'onglet 'Mon serveur' du manager, dans la partie droite de l'écran)
 
 Ensuite, il faut modifier le fichier `launch.bat` (clique droit, ouvrir avec Bloc-Notes) afin de compléter le chemin du script par l'endroit où vous avez stocké le script.:
