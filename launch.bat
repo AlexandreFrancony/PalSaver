@@ -1,3 +1,5 @@
+@echo off
+
 REM Get the current directory
 set "CURRENT_DIR=%~dp0"
 
