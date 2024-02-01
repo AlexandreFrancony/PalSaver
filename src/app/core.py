@@ -199,5 +199,6 @@ def main(ftp_service: t_ftp_service, logger: t_logger_service, rcon_service: t_r
                 "message": ">>> STOPPING APP <<<",
             }
         )
-        time.sleep(0.1)
+        print(f"Le programme s'arrête dans 3 secondes")
+        time.sleep(3)
         evt_logger.set()
