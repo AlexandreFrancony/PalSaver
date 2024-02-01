@@ -54,6 +54,7 @@ for var in env_vars:
             print("Vous devez saisir une valeur pour cette variable d'environnement car elle n'a pas de valeur par défaut.\n")
         else :
             print("Vous avez choisi de conserver la valeur par défaut.\n")
+            new_value = ' '
 
 # Écrire les variables d'environnement dans le fichier .env
 with open('.env', 'w') as env_file:
