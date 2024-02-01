@@ -1,15 +1,26 @@
 # PalSaver
-Script python permettant la sauvegarde de votre serveur Palworld depuis un serveur FTP sur votre machine locale.
+Script python permettant la sauvegarde de votre serveur Palworld depuis un serveur FTP sur votre machine locale.<br>
 Ce script a été développé pour fonctionner avec le serveur Palworld de [Nitroserv](https://www.nitroserv.com/).
 
 ## Prérequis
 - [Python 3.12](https://www.python.org/downloads/)
-- Installation des modules python trouvé dans le fichier `requirements.txt`
-  - [pip](https://pip.pypa.io/en/stable/installation/): `python -m pip install -r requirements.txt` ou `pip install -r requirements.txt` si pip est déjà installé
+- Installation des modules python trouvé dans le fichier `requirements.txt` (à voir après grâce au easy setup)
 
 ## Installation
-Télécharger la dernière release [ici](https://github.com/AlexandreFrancony/PalSaver/releases/).
-Extraire le fichier zip dans le dossier de votre choix.
+Télécharger la dernière release [ici](https://github.com/AlexandreFrancony/PalSaver/releases/).<br>
+Extraire le fichier zip dans le dossier de votre choix.<br>
+
+Vous avez maintenant 2 options pour intaller les modules python nescessaires au fonctionnement du script et remplir vos identifiants: Via le easy setup ou manuellement.
+
+### Easy setup
+
+Pour lancer le easy setup, il faut lancer le fichier `setup.bat` se trouvant dans le dossier nouvellement extrait. Ce easy setup vous aidera à :
+1) remplir le fichier `.env` avec vos identifiants de connection.
+2) Télécharger les bibliothèques requises au bon fonctionnement du script.
+Une fois ce setup terminé, vous pouvez passer à l'utilisation du script.
+
+### Manuellement
+
 Ouvrir le fichier `.env` et ajouter les valeurs nescessaire =
  - `HOSTNAME`: Nom de domaine du serveur FTP (pour Nitroserv, c'est `ftp.nitroserv.games`)
  - `USERNAME_SERVER`: Identifiant du serveur FTP (pour Nitroserv, c'est trouvable sous l'onglet 'Comptes FTP' du manager)
@@ -20,17 +31,9 @@ Ouvrir le fichier `.env` et ajouter les valeurs nescessaire =
  - `RCON_PORT`: Port RCON du serveur (pour Nitroserv, c'est trouvable dans l'onglet 'Mon serveur' du manager, dans la partie droite de l'écran, avec le RCON password, par défaut 9221 chez Nitroserv)
  - `RCON_PWD`: Mot de passe RCON du serveur (pour Nitroserv, c'est trouvable dans l'onglet 'Mon serveur' du manager, dans la partie droite de l'écran)
 
-Ensuite, il faut modifier le fichier `launch.bat` (clique droit, ouvrir avec Bloc-Notes) afin de compléter le chemin du script par l'endroit où vous avez stocké le script.:
-```
-@echo off
-cd <Chemin du dossier du script>
-python src/main.py
-```
-
 ## Utilisation
 Lancer le fichier `launch.bat`.<br>
-Le script va créer un dossier `Saves_Palworld` dans le dossier spécifié dans le fichier `.env`.<br>
-Le script va ensuite télécharger les fichiers de sauvegarde du serveur FTP dans le dossier `Saves_Palworld`.<br>
+Le script va télécharger les fichiers de sauvegarde du serveur FTP dans le dossier spécifié dans la varibale `LOCAL_PATH` de `.env`<br>
 A noter que des logs sont créés dans le dossier `logs` du dossier du `Saves_Palworld`.
 
 ## Automatisation
