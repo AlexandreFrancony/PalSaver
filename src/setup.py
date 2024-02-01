@@ -45,6 +45,8 @@ env_values = {
     "RCON_PWD": ""
 }
 
+new_values = {}
+
 for var in env_vars:
     new_value = ""
     clear()    
@@ -52,12 +54,13 @@ for var in env_vars:
         print(f"{var} : {env_comm[var]}\nValeur par défaut : {env_values[var]}\nVeuillez saisir une nouvelle valeur ou appuyer sur Entrée pour conserver la valeur par défaut.")
         new_value = input(var + " = ")
         if new_value != "":
-            env_values[var] = new_value
+            new_values[var] = new_value
             print("\n")
         elif env_values[var] == "":
             clear()
             print("Vous devez saisir une valeur pour cette variable d'environnement car elle n'a pas de valeur par défaut.\n")
         else :
+            new_values[var] = env_values[var]
             new_value = ' '
 
 # Écrire les variables d'environnement dans le fichier .env
