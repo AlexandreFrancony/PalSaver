@@ -19,22 +19,21 @@ PWD="***********"
 REMOTE_PATH="/Palworld/Pal/Saved"
 LOCAL_PATH="C:\Users\Saves_Palworld" # Par exemple
 ```
-
-## Utilisation
-Lancer le fichier `src/main.py` avec python.
-Le script va créer un dossier `Saves_Palworld` dans le dossier spécifié dans le fichier `.env`.
-Le script va ensuite télécharger les fichiers de sauvegarde du serveur FTP dans le dossier `Saves_Palworld`.
-A noter que des logs sont créés dans le dossier `logs` du dossier du `Saves_Palworld`.
-
-## Automatisation
-Pour automatiser le script, il est possible de créer une tâche planifiée sur Windows.
-Pour cela, il faut créer un fichier `.bat` avec le contenu suivant:
+Ensuite, il faut modifier le fichier `launch.bat` (clique droit, ouvrir avec Bloc-Notes) afin de compléter le chemin du script:
 ```
 @echo off
 cd <Chemin du dossier du script>
 python src/main.py
 ```
-Ensuite, il faut créer une tâche planifiée qui va lancer le fichier `.bat` à l'heure souhaitée.
+
+## Utilisation
+Lancer le fichier `launch.bat`.<br>
+Le script va créer un dossier `Saves_Palworld` dans le dossier spécifié dans le fichier `.env`.<br>
+Le script va ensuite télécharger les fichiers de sauvegarde du serveur FTP dans le dossier `Saves_Palworld`.<br>
+A noter que des logs sont créés dans le dossier `logs` du dossier du `Saves_Palworld`.
+
+## Automatisation
+Pour automatiser le script, il faut créer une [tâche planifiée](https://www.malekal.com/les-taches-planifiees-de-windows/#:~:text=Les%20t%C3%A2ches%20planifi%C3%A9es%20de%20Windows,ou%20au%20d%C3%A9marrage%20de%20Windows.) qui va lancer le fichier `launch.bat` à l'heure souhaitée.
 
 ## Conclusion
 Merci d'avoir lu ce README, j'espère que ce script vous sera utile, il n'est pas parfait, en cas de soucis je resterais vigilent sur ce repo.
