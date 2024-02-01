@@ -73,7 +73,7 @@ print("Le fichier .env a été rempli avec succès.")
 
 #afficher le contenu du fichier .env
 print("\nContenu du fichier .env :")
-with open('../.env', 'r') as env_file:
+with open('./.env', 'r') as env_file:
     print(env_file.read())
 
 print("Voulez-vous installer les dépendances du programme ? (y/n)")
