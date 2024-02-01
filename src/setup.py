@@ -38,15 +38,16 @@ env_values = {
     "REMOTE_PATH": "/Palworld/Pal/Saved",
     "LOCAL_PATH": "C:\\Saves_Palworld",
     "RCON_IP": "",
-    "RCON_PORT": "",
-    "RCON_PWD": "9221"
+    "RCON_PORT": "9221",
+    "RCON_PWD": ""
 }
 
 for var in env_vars:
     new_value = ""
+    os.system('cls' if os.name == 'nt' else 'clear')
     while new_value == "":
         print(f"{var} : {env_comm[var]}\nValeur par défaut : {env_values[var]}\nVeuillez saisir une nouvelle valeur ou appuyer sur Entrée pour conserver la valeur par défaut.")
-        new_value = input()
+        new_value = input(var + " = ")
         if new_value != "":
             env_values[var] = new_value
             print("\n")
@@ -65,6 +66,9 @@ print("Le fichier .env a été rempli avec succès.")
 
 print("Voulez-vous installer les dépendances du programme ? (y/n)")
 if input() == "y":
-    print("Installation des dépendances...")
-    os.system("python -m pip install -r requirements.txt")
-    print("Installation des dépendances terminée.")
+    try :
+        print("Installation des dépendances...")
+        os.system("python -m pip install -r ../requirements.txt")
+        print("Installation des dépendances terminée.")
+    except Exception as e:
+        print(f"Une erreur est survenue lors de l'installation des dépendances : {e}")
