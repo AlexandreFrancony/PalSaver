@@ -144,7 +144,7 @@ def main(ftp_service: t_ftp_service, logger: t_logger_service, rcon_service: t_r
             )
         
         #Connexion au serveur en RCON
-        rcon = rcon_service(HOSTNAME, RCON_PWD)
+        rcon = rcon_service(HOSTNAME, RCON_PWD, logger_message_queue)
         logger_message_queue.put(
                 {
                     "log": "app",

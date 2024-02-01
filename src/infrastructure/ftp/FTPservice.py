@@ -81,7 +81,6 @@ class FTPservice:
                     name += str(detail_list[-1]).strip()
 
                 remote_item_path = remote_path + name
-                print(remote_item_path)
                 local_item_path = (local_path + name).replace('/', "\\")
 
                 if type_char == "file":
