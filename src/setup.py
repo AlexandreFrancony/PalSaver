@@ -8,6 +8,9 @@ if input() != "y":
     exit()
 print("Début du processus de configuration.\n")
 
+def clear()
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 
 # Demander à l'utilisateur de saisir les valeurs pour chaque variable d'environnement
 env_vars = ['HOSTNAME', 
@@ -44,7 +47,7 @@ env_values = {
 
 for var in env_vars:
     new_value = ""
-    os.system('cls' if os.name == 'nt' else 'clear')
+    clear()    
     while new_value == "":
         print(f"{var} : {env_comm[var]}\nValeur par défaut : {env_values[var]}\nVeuillez saisir une nouvelle valeur ou appuyer sur Entrée pour conserver la valeur par défaut.")
         new_value = input(var + " = ")
@@ -52,9 +55,9 @@ for var in env_vars:
             env_values[var] = new_value
             print("\n")
         elif env_values[var] == "":
+            clear()
             print("Vous devez saisir une valeur pour cette variable d'environnement car elle n'a pas de valeur par défaut.\n")
         else :
-            print("Vous avez choisi de conserver la valeur par défaut.\n")
             new_value = ' '
 
 # Écrire les variables d'environnement dans le fichier .env
@@ -62,7 +65,13 @@ with open('.env', 'w') as env_file:
     for var, value in env_values.items():
         env_file.write(f"{var}={value}\n")
 
+clear()
 print("Le fichier .env a été rempli avec succès.")
+
+#afficher le contenu du fichier .env
+print("\nContenu du fichier .env :")
+with open('../.env', 'r') as env_file:
+    print(env_file.read())
 
 print("Voulez-vous installer les dépendances du programme ? (y/n)")
 if input() == "y":
