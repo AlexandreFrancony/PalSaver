@@ -3,16 +3,17 @@ import multiprocessing as mp
 
 class RCONservice:
 
-    def __init__(self, hostname: str, pwd: str, logger_message_queue:mp.Queue) -> None:
+    def __init__(self, hostname: str, pwd: str, port: int, logger_message_queue:mp.Queue) -> None:
         self.hostname = hostname
         self.pwd = pwd
+        self.port = port
         self.logger_message_queue = logger_message_queue
         self.rcon = None
 
     def connect(self):
         print(f'Trying to notify server')
         try :
-            with Client(self.hostname.split(":")[0], self.hostname.split(":")[0], passwd=self.pwd) as client:
+            with Client(self.hostname.split(":")[0], self.port, passwd=self.pwd) as client:
                 response = client.run('Broadcast Save_Done')
                 print(response)
         except Exception as e:

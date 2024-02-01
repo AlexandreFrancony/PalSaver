@@ -86,6 +86,7 @@ def main(ftp_service: t_ftp_service, logger: t_logger_service, rcon_service: t_r
         LOCAL_DIR = os.getenv("LOCAL_PATH")
         SAVE_DIR = LOCAL_DIR + "\\Saves"
         RCON_PWD = os.getenv("RCON_PWD")
+        RCON_PORT = os.getenv("RCON_PORT")
         
         #Initialiser l'objet FTP
         saver = ftp_service(HOSTNAME, USERNAME, PWD)
@@ -144,7 +145,7 @@ def main(ftp_service: t_ftp_service, logger: t_logger_service, rcon_service: t_r
             )
         
         #Connexion au serveur en RCON
-        rcon = rcon_service(HOSTNAME, RCON_PWD, logger_message_queue)
+        rcon = rcon_service(HOSTNAME, RCON_PWD, RCON_PORT, logger_message_queue)
         logger_message_queue.put(
                 {
                     "log": "app",
