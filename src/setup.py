@@ -65,7 +65,7 @@ for var in env_vars:
 
 # Écrire les variables d'environnement dans le fichier .env
 with open('.env', 'w') as env_file:
-    for var, value in env_values.items():
+    for var, value in new_values.items():
         env_file.write(f"{var}={value}\n")
 
 clear()
