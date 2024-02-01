@@ -2,7 +2,6 @@ from ftplib import FTP
 import os
 from io import BytesIO
 
-
 class FTPservice:
     def __init__(self, hostname: str, username: str, pwd: str) -> None:
         self.hostname = hostname

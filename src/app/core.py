@@ -10,10 +10,12 @@ import shutil
 
 if TYPE_CHECKING :
     from infrastructure.ftp.FTPservice import FTPservice
+    from infrastructure.RCON.RCONservice import RCONservice
     from utils.CustomLogger import CustomLogger
 
 t_ftp_service = Type["FTPservice"]
 t_logger_service = Type["CustomLogger"]
+t_rcon_service = Type["RCONservice"]
 
 logger_message_queue: "mp.Queue[Dict[str, Any]]" = mp.Queue()
 evt_logger: Any = mp.Event()
@@ -52,7 +54,7 @@ def manage_ctrl_c(*args: Any) -> None:
     time.sleep(0.5)
     os.killpg(0, signal.SIGKILL)
 
-def main(ftp_service: t_ftp_service, logger: t_logger_service) -> None:
+def main(ftp_service: t_ftp_service, logger: t_logger_service, rcon_service: t_rcon_service) -> None:
     if not os.path.exists("./log/"):
         os.makedirs("./log")
 
@@ -83,6 +85,7 @@ def main(ftp_service: t_ftp_service, logger: t_logger_service) -> None:
         REMOTE_PATH = os.getenv("REMOTE_PATH")
         LOCAL_DIR = os.getenv("LOCAL_PATH")
         SAVE_DIR = LOCAL_DIR + "\\Saves"
+        RCON_PWD = os.getenv("RCON_PWD")
         
         #Initialiser l'objet FTP
         saver = ftp_service(HOSTNAME, USERNAME, PWD)
@@ -100,7 +103,7 @@ def main(ftp_service: t_ftp_service, logger: t_logger_service) -> None:
                 {
                     "log": "app",
                     "type": "INFO",
-                    "message": "Connected with success",
+                    "message": "Connected to FTP with success",
                 }
             )
 
@@ -137,6 +140,24 @@ def main(ftp_service: t_ftp_service, logger: t_logger_service) -> None:
                     "log": "app",
                     "type": "INFO",
                     "message": f" All data downloaded with success in :  {SAVE_DIR}/{NEW_DIR}",
+                }
+            )
+        
+        #Connexion au serveur en RCON
+        rcon = rcon_service(HOSTNAME, RCON_PWD)
+        logger_message_queue.put(
+                {
+                    "log": "app",
+                    "type": "INFO",
+                    "message": "RCON service init succeed",
+                }
+            )
+        rcon.connect()
+        logger_message_queue.put(
+                {
+                    "log": "app",
+                    "type": "INFO",
+                    "message": "Successfully contacted RCON server",
                 }
             )
 

@@ -10,16 +10,15 @@ Ce script a été développé pour fonctionner avec le serveur Palworld de [Nitr
 ## Installation
 Télécharger la dernière release [ici](https://github.com/AlexandreFrancony/PalSaver/releases/).
 Extraire le fichier zip dans le dossier de votre choix.
-Ouvrir le fichier `.env` et ajouter les valeurs nescessaire.
-Dans le cas d'un serveur Nitroserv, les valeurs sont de cette forme:
-```
-HOSTNAME="ftp.nitroserv.games"
-USERNAME_SERVER="<ID>-<Nom>"
-PWD="***********"
-REMOTE_PATH="/Palworld/Pal/Saved"
-LOCAL_PATH="C:\Users\Saves_Palworld" # Par exemple
-```
-Ensuite, il faut modifier le fichier `launch.bat` (clique droit, ouvrir avec Bloc-Notes) afin de compléter le chemin du script:
+Ouvrir le fichier `.env` et ajouter les valeurs nescessaire =
+ - `HOSTNAME`: Nom de domaine du serveur FTP (pour Nitroserv, c'est `ftp.nitroserv.games`)
+ - `USERNAME_SERVER`: Identifiant du serveur FTP (pour Nitroserv, c'est trouvable sous l'onglet 'Comptes FTP' du manager)
+ - `PWD`: Mot de passe du serveur FTP (Mot de passe définit avec le Username dans l'onglet 'Comptes FTP' du manager)
+ - `REMOTE_PATH`: Chemin du dossier de sauvegarde sur le serveur FTP (pour Nitroserv, c'est `/Palworld/Pal/Saved`)
+ - `LOCAL_PATH`: Chemin du dossier où vous souhaitez sauvegarder votre save (par exemple `C:\Users\Saves_Palworld`)
+ - `RCON_PWD`: Mot de passe RCON du serveur (pour Nitroserv, c'est trouvable dans l'onglet 'Mon serveur' du manager, dans la partie droite de l'écran)
+
+Ensuite, il faut modifier le fichier `launch.bat` (clique droit, ouvrir avec Bloc-Notes) afin de compléter le chemin du script par l'endroit où vous avez stocké le script.:
 ```
 @echo off
 cd <Chemin du dossier du script>
