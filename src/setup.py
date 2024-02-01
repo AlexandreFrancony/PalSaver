@@ -36,7 +36,7 @@ env_values = {
     "USERNAME_SERVER": "",
     "PWD": "",
     "REMOTE_PATH": "/Palworld/Pal/Saved",
-    "LOCAL_PATH": "C:\Saves_Palworld",
+    "LOCAL_PATH": "C:\\Saves_Palworld",
     "RCON_IP": "",
     "RCON_PORT": "",
     "RCON_PWD": "9221"
