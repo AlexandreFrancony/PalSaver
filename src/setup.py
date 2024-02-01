@@ -8,7 +8,7 @@ if input() != "y":
     exit()
 print("Début du processus de configuration.\n")
 
-def clear()
+def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
